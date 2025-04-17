@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Блокировка</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: black;
+      color: white;
+      text-align: center;
+      margin: 0;
+      overflow: hidden;
+    }
+    #message {
+      font-size: 24px;
+      color: red;
+      animation: blink 1s infinite alternate;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: all;
+    }
+    @keyframes blink {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+    <div id="message">
+      Выход из сайта через 5 секунд...
+    </div>
+  </div>
+
+  <script>
+    // Функция для блокировки всех взаимодействий
+    function disableInteractions() {
+      const overlay = document.querySelector('.overlay');
+      overlay.style.pointerEvents = 'all'; // Блокируем все взаимодействия
+    }
+
+    // Таймер на 5 секунд, после которого будет перенаправление
+    setTimeout(function() {
+      // Переход на сайт и попытка скачать файл
+      window.location.href = 'https://postimg.cc/mPdXXsZn'; // Переход на сайт
+
+      // Попытка автоматически скачать файл с сайта
+      const downloadLink = document.createElement('a');
+      downloadLink.href = 'image3.jpg'; // Указываем URL изображения для скачивания
+      downloadLink.download = 'image3.jpg'; // Имя файла для сохранения
+      downloadLink.click(); // Имитируем клик по ссылке для скачивания
+    }, 5000);
+
+    // Запуск блокировки сразу после загрузки страницы
+    disableInteractions();
+  </script>
+
+</body>
+</html>

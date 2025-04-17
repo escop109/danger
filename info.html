@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>⚠️ ВНИМАНИЕ ⚠️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+    body {
+      margin: 0;
+      background-color: black;
+      color: crimson;
+      font-family: 'Creepster', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      animation: bg-flicker 4s infinite;
+    }
+
+    h1 {
+      font-size: 64px;
+      margin-bottom: 20px;
+      animation: pulse 1.5s infinite;
+    }
+
+    p {
+      font-size: 24px;
+      max-width: 600px;
+      line-height: 1.5;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 1s;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 20px;
+      font-family: inherit;
+      background-color: darkred;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 3s;
+    }
+
+    button:hover {
+      background-color: crimson;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes bg-flicker {
+      0%, 100% { background-color: black; }
+      50% { background-color: #1a0000; }
+    }
+  </style>
+</head>
+<body>
+  <h1>⚠️ ПРЕДУПРЕЖДЕНИЕ ⚠️</h1>
+  <p>Сайт содержит тревожный, психически нестабильный и потенциально пугающий контент. В нем присутствуют жестокие картинки крови<br>Если вы продолжите, вы соглашаетесь взять на себя все последствия.</p>
+  <button onclick="proceed()">Мне всё равно</button>
+
+  <script>
+    function proceed() {
+      window.location.href = "play.html";
+    }
+  </script>
+</body>
+</html>
+<script src="script.js"></script>
